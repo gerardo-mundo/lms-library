@@ -45,7 +45,7 @@ import { Fluid } from "primeng/fluid";
             >
               <i
                 class="pi pi-book text-3xl"
-                style="color: var(--p-emerald-500)"
+                style="color: var(--primary-color)"
               ></i>
             </div>
             <h1 class="text-3xl font-extrabold text-color m-0">LMS</h1>
