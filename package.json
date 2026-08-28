@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start": "nx serve",
+    "build": "nx build",
+    "watch": "nx build --watch --configuration development",
+    "test": "nx test"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@nx/angular": "23.0.2",
     "@primeng/themes": "^19.1.0",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
@@ -29,8 +30,14 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.0",
+    "@angular-devkit/core": "^19.2.0",
+    "@angular-devkit/schematics": "^19.2.0",
     "@angular/cli": "^19.2.0",
     "@angular/compiler-cli": "^19.2.0",
+    "@nx/angular": "23.0.2",
+    "@nx/workspace": "23.0.2",
+    "@schematics/angular": "^19.2.0",
+    "nx": "23.0.2",
     "typescript": "~5.7.0"
   }
 }
