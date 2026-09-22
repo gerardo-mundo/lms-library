@@ -17,7 +17,7 @@ export class UsersService {
     this._loading$.next(true);
     this.repo.getAll().subscribe({
       next: (r) => {
-        if (!r.error) this._items$.next(r.data);
+        if (!r.error) this._items$.next(r.data.content);
         this._loading$.next(false);
       },
       error: () => this._loading$.next(false),
