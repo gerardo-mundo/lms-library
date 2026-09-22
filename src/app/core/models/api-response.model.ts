@@ -5,8 +5,17 @@ export interface ApiResponse<T> {
   data: T;
 }
 
+interface Content<T> {
+  content: T;
+}
+
+export interface PageableResponse<T> extends ApiResponse<Content<T>> {
+  data: {
+    content: T;
+  };
+}
 /** Helper to create a successful response */
-export function ok<T>(data: T, message = 'Success'): ApiResponse<T> {
+export function ok<T>(data: T, message = "Success"): ApiResponse<T> {
   return { error: false, message, data };
 }
 
