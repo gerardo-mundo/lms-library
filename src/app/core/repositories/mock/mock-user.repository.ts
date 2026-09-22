@@ -3,7 +3,12 @@ import { Observable, of } from "rxjs";
 import { delay } from "rxjs/operators";
 import { UserRepository } from "../interfaces/user.repository";
 import { User, CreateUserDto, UpdateUserDto } from "@core/models/user.model";
-import { ApiResponse, ok, err } from "@core/models/api-response.model";
+import {
+  ApiResponse,
+  ok,
+  err,
+  PageableResponse,
+} from "@core/models/api-response.model";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "@env";
 
@@ -14,8 +19,10 @@ export class MockUserRepository extends UserRepository {
   private http = inject(HttpClient);
   private users: User[] = [];
 
-  getAll(): Observable<ApiResponse<User[]>> {
-    return this.http.get<ApiResponse<User[]>>(`${environment.apiUrl}/users`);
+  getAll(): Observable<PageableResponse<User[]>> {
+    return this.http.get<PageableResponse<User[]>>(
+      `${environment.apiUrl}/users/search`,
+    );
   }
 
   getById(id: string): Observable<ApiResponse<User>> {
