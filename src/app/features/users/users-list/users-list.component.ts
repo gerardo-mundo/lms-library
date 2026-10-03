@@ -209,12 +209,15 @@ export class UsersListComponent implements OnInit {
             summary: "Error",
             detail: r.message,
           });
-        else
+        else {
           this.messageService.add({
             severity: "success",
             summary: "Success",
             detail: "User created",
           });
+
+          this.svc.loadAll();
+        }
       });
     }
   }
