@@ -83,6 +83,8 @@ import { ButtonModule } from "primeng/button";
               [toggleMask]="true"
               [feedback]="false"
               placeholder="Min 8 characters"
+              autocomplete="current-password"
+              fluid="true"
             ></p-password>
           </div>
           <div class="field col-12 md:col-6">
