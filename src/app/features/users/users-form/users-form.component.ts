@@ -97,6 +97,7 @@ import { ButtonModule } from "primeng/button";
               formControlName="role"
               [options]="roleOptions"
               [editable]="true"
+              appendTo="body"
             ></p-select>
           </div>
           <div class="field col-12 md:col-6">
