@@ -18,7 +18,7 @@ import { DialogModule } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { PasswordModule } from "primeng/password";
 import { DropdownModule } from "primeng/dropdown";
-import { Select } from "primeng/select";
+import { Select, SelectChangeEvent } from "primeng/select";
 import { ButtonModule } from "primeng/button";
 
 @Component({
@@ -98,6 +98,7 @@ import { ButtonModule } from "primeng/button";
               [options]="roleOptions"
               [editable]="true"
               appendTo="body"
+              (onChange)="onChangeSelectedValue($event)"
             ></p-select>
           </div>
           <div class="field col">
@@ -205,5 +206,9 @@ export class UsersFormComponent implements OnChanges {
     this.visible = false;
     this.visibleChange.emit(false);
     this.initForm();
+  }
+
+  onChangeSelectedValue(e: SelectChangeEvent) {
+    this.form.patchValue({ enrollmentId: "", employeeKey: "", ...this.form });
   }
 }
