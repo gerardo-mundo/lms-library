@@ -18,7 +18,7 @@ import { DialogModule } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { PasswordModule } from "primeng/password";
 import { DropdownModule } from "primeng/dropdown";
-import { SelectModule, Select } from "primeng/select";
+import { Select } from "primeng/select";
 import { ButtonModule } from "primeng/button";
 
 @Component({
