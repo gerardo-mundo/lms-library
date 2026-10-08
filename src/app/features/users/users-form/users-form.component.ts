@@ -100,27 +100,30 @@ import { ButtonModule } from "primeng/button";
               appendTo="body"
             ></p-select>
           </div>
-          <div class="field col-12 md:col-6">
-            <label for="enrollmentId" class="font-semibold"
-              >Enrollment ID</label
-            >
-            <input
-              class="w-full"
-              pInputText
-              id="enrollmentId"
-              formControlName="enrollmentId"
-              placeholder="Student ID (if applicable)"
-            />
-          </div>
-          <div class="field col-12 md:col-6">
-            <label for="employeeKey" class="font-semibold">Employee Key</label>
-            <input
-              class="w-full"
-              pInputText
-              id="employeeKey"
-              formControlName="employeeKey"
-              placeholder="Employee key (if applicable)"
-            />
+          <div class="field col">
+            @if (role === "ROLE_STUDENT") {
+              <label for="enrollmentId" class="font-semibold"
+                >Enrollment ID</label
+              >
+              <input
+                class="w-full"
+                pInputText
+                id="enrollmentId"
+                formControlName="enrollmentId"
+                placeholder="Student ID (if applicable)"
+              />
+            } @else {
+              <label for="employeeKey" class="font-semibold"
+                >Employee Key</label
+              >
+              <input
+                class="w-full"
+                pInputText
+                id="employeeKey"
+                formControlName="employeeKey"
+                placeholder="Employee key (if applicable)"
+              />
+            }
           </div>
         </div>
         <div class="flex justify-content-end gap-2 mt-4">
@@ -157,6 +160,10 @@ export class UsersFormComponent implements OnChanges {
     { label: "Student", value: "ROLE_STUDENT" },
     { label: "Administrative", value: "ROLE_ADMINISTRATIVE" },
   ];
+
+  get role(): UserRole {
+    return this.form.get("role")?.value;
+  }
 
   constructor(private fb: FormBuilder) {
     this.initForm();
