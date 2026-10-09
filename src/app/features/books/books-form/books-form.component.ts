@@ -149,6 +149,7 @@ import { InputNumberModule } from "primeng/inputnumber";
             icon="pi pi-check"
             type="submit"
             [disabled]="form.invalid"
+            (onClick)="onSubmit()"
           ></p-button>
         </div>
       </form>
