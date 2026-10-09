@@ -1,7 +1,8 @@
 import { inject, Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { delay } from "rxjs/operators";
-import { BookRepository } from "../interfaces/book.repository";
+import { BookRepository } from "./interfaces/book.repository";
+
 import { Book, CreateBookDto, UpdateBookDto } from "@core/models/book.model";
 import {
   ApiResponse,
