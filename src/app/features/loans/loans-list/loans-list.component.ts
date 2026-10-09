@@ -216,7 +216,7 @@ export class LoansListComponent implements OnInit {
       if (!r.error) this.allUsers = r.data.content;
     });
     this.bookRepo.getAll().subscribe((r) => {
-      if (!r.error) this.allBooks = r.data;
+      if (!r.error) this.allBooks = r.data.content;
     });
   }
 

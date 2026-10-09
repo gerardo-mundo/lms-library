@@ -229,7 +229,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookRepo.getAll().subscribe((res) => {
-      if (!res.error) this.totalBooks = res.data.length;
+      if (!res.error) this.totalBooks = res.data.content.length;
     });
     this.thesisRepo.getAll().subscribe((res) => {
       if (!res.error) this.totalThesis = res.data.length;
