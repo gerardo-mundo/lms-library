@@ -16,7 +16,7 @@ import { environment } from "@env";
 const MOCK_DELAY = 300;
 
 @Injectable()
-export class MockBookRepository extends BookRepository {
+export class ApiBookRepository extends BookRepository {
   private books: Book[] = [
     {
       id: "b001",

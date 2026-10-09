@@ -21,7 +21,7 @@ import { PublicationRepository } from "@core/repositories/interfaces/publication
 import { UserRepository } from "@core/repositories/interfaces/user.repository";
 import { LoanRepository } from "@core/repositories/interfaces/loan.repository";
 
-import { MockBookRepository } from "@core/repositories/mock/mock-book.repository";
+import { ApiBookRepository } from "@core/repositories/book.repository";
 import { MockThesisRepository } from "@core/repositories/mock/mock-thesis.repository";
 import { MockPublicationRepository } from "@core/repositories/mock/mock-publication.repository";
 import { MockUserRepository } from "@core/repositories/user.repository";
@@ -45,7 +45,7 @@ export const appConfig: ApplicationConfig = {
     ConfirmationService,
 
     // Repository bindings — swap these for HTTP implementations
-    { provide: BookRepository, useClass: MockBookRepository },
+    { provide: BookRepository, useClass: ApiBookRepository },
     { provide: ThesisRepository, useClass: MockThesisRepository },
     { provide: PublicationRepository, useClass: MockPublicationRepository },
     { provide: UserRepository, useClass: MockUserRepository },
