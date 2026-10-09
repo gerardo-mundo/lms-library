@@ -44,11 +44,12 @@ import { InputNumberModule } from "primeng/inputnumber";
     >
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="formgrid grid">
-          <div class="field col-12">
+          <div class="field col-12 md:col-6">
             <label for="title" class="font-semibold"
               >Title <span class="text-red-500">*</span></label
             >
             <input
+              class="w-full"
               pInputText
               id="title"
               formControlName="title"
@@ -61,6 +62,7 @@ import { InputNumberModule } from "primeng/inputnumber";
               >Author <span class="text-red-500">*</span></label
             >
             <input
+              class="w-full"
               pInputText
               id="author"
               formControlName="author"
@@ -70,6 +72,7 @@ import { InputNumberModule } from "primeng/inputnumber";
           <div class="field col-12 md:col-6">
             <label for="authorTwo" class="font-semibold">Author 2</label>
             <input
+              class="w-full"
               pInputText
               id="authorTwo"
               formControlName="authorTwo"
@@ -79,6 +82,7 @@ import { InputNumberModule } from "primeng/inputnumber";
           <div class="field col-12 md:col-6">
             <label for="authorThree" class="font-semibold">Author 3</label>
             <input
+              class="w-full"
               pInputText
               id="authorThree"
               formControlName="authorThree"
@@ -90,6 +94,7 @@ import { InputNumberModule } from "primeng/inputnumber";
               >Publisher <span class="text-red-500">*</span></label
             >
             <input
+              class="w-full"
               pInputText
               id="publisher"
               formControlName="publisher"
@@ -101,6 +106,7 @@ import { InputNumberModule } from "primeng/inputnumber";
               >Collection <span class="text-red-500">*</span></label
             >
             <input
+              class="w-full"
               pInputText
               id="collection"
               formControlName="collection"
@@ -112,6 +118,7 @@ import { InputNumberModule } from "primeng/inputnumber";
               >ISBN <span class="text-red-500">*</span></label
             >
             <input
+              class="w-full"
               pInputText
               id="isbn"
               formControlName="isbn"
@@ -122,6 +129,7 @@ import { InputNumberModule } from "primeng/inputnumber";
           <div class="field col-12 md:col-6">
             <label for="acquisition" class="font-semibold">Acquisition</label>
             <p-inputNumber
+              class="w-full"
               inputId="acquisition"
               formControlName="acquisition"
               [min]="0"
