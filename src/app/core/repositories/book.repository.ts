@@ -35,15 +35,9 @@ export class ApiBookRepository extends BookRepository {
   }
 
   create(dto: CreateBookDto): Observable<ApiResponse<Book>> {
-    const newBook: Book = {
-      ...dto,
-      id: "b" + String(this.books.length + 1).padStart(3, "0"),
-      authorTwo: dto.authorTwo ?? null,
-      authorThree: dto.authorThree ?? null,
-    };
-    this.books = [newBook, ...this.books];
-    return of(ok<Book>(newBook, "Book created successfully")).pipe(
-      delay(MOCK_DELAY),
+    return this.http.post<ApiResponse<Book>>(
+      `${environment.apiUrl}/books`,
+      dto,
     );
   }
 
