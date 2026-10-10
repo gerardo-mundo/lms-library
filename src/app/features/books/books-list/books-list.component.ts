@@ -85,8 +85,8 @@ import { HttpErrorResponse } from "@angular/common/http";
               <th pSortableColumn="publisher">
                 Publisher <p-sortIcon field="publisher"></p-sortIcon>
               </th>
-              <th pSortableColumn="isbn">
-                ISBN <p-sortIcon field="isbn"></p-sortIcon>
+              <th pSortableColumn="acquisition">
+                Acquisition <p-sortIcon field="acquisition"></p-sortIcon>
               </th>
               <th pSortableColumn="collection">
                 Collection <p-sortIcon field="collection"></p-sortIcon>
@@ -118,7 +118,7 @@ import { HttpErrorResponse } from "@angular/common/http";
               <td>{{ book.publisher }}</td>
               <td>
                 <code class="text-sm surface-ground p-1 border-round">{{
-                  book.isbn
+                  book.acquisition
                 }}</code>
               </td>
               <td>{{ book.collection }}</td>
