@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, tap } from "rxjs";
 import { BookRepository } from "@core/repositories/interfaces/book.repository";
 import { Book, CreateBookDto, UpdateBookDto } from "@core/models/book.model";
-import { ApiResponse, err } from "@core/models/api-response.model";
+import { ApiResponse } from "@core/models/api-response.model";
 
 @Injectable({ providedIn: "root" })
 export class BooksService {
