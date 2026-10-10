@@ -12,6 +12,7 @@ import { TagModule } from "primeng/tag";
 import { CardModule } from "primeng/card";
 import { IconFieldModule } from "primeng/iconfield";
 import { InputIconModule } from "primeng/inputicon";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: "app-books-list",
@@ -191,36 +192,38 @@ export class BooksListComponent implements OnInit {
 
   onSave(dto: CreateBookDto): void {
     if (this.selectedBook) {
-      this.booksService.update(this.selectedBook.id, dto).subscribe((res) => {
-        if (res.error) {
-          this.messageService.add({
-            severity: "error",
-            summary: "Error",
-            detail: res.message,
-          });
-        } else {
+      this.booksService.update(this.selectedBook.id, dto).subscribe({
+        next: (res) => {
           this.messageService.add({
             severity: "success",
             summary: "Success",
             detail: res.message,
           });
-        }
+        },
+        error: (res: HttpErrorResponse) => {
+          this.messageService.add({
+            severity: "error",
+            summary: `Error: ${res.status}`,
+            detail: res.error.message,
+          });
+        },
       });
     } else {
-      this.booksService.create(dto).subscribe((res) => {
-        if (res.error) {
-          this.messageService.add({
-            severity: "error",
-            summary: "Error",
-            detail: res.message,
-          });
-        } else {
+      this.booksService.create(dto).subscribe({
+        next: (res) => {
           this.messageService.add({
             severity: "success",
             summary: "Success",
             detail: res.message,
           });
-        }
+        },
+        error: (res: HttpErrorResponse) => {
+          this.messageService.add({
+            severity: "error",
+            summary: `Error: ${res.status}`,
+            detail: res.error.message,
+          });
+        },
       });
     }
   }
