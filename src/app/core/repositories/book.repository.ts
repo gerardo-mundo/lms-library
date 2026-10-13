@@ -42,12 +42,9 @@ export class ApiBookRepository extends BookRepository {
   }
 
   update(id: string, dto: UpdateBookDto): Observable<ApiResponse<Book>> {
-    const idx = this.books.findIndex((b) => b.id === id);
-    if (idx === -1)
-      return of(err<Book>("Book not found")).pipe(delay(MOCK_DELAY));
-    this.books[idx] = { ...this.books[idx], ...dto } as Book;
-    return of(ok<Book>(this.books[idx], "Book updated successfully")).pipe(
-      delay(MOCK_DELAY),
+    return this.http.put<ApiResponse<Book>>(
+      `${environment.apiUrl}/books/update/${id}`,
+      dto,
     );
   }
 
