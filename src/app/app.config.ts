@@ -23,7 +23,7 @@ import { LoanRepository } from "@core/repositories/interfaces/loan.repository";
 
 import { ApiBookRepository } from "@core/repositories/book.repository";
 import { MockThesisRepository } from "@core/repositories/mock/mock-thesis.repository";
-import { MockPublicationRepository } from "@core/repositories/mock/mock-publication.repository";
+import { MockPublicationRepository } from "@core/repositories/mock-publication.repository";
 import { MockUserRepository } from "@core/repositories/user.repository";
 import { MockLoanRepository } from "@core/repositories/mock/mock-loan.repository";
 
