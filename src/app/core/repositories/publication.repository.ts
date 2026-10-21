@@ -40,7 +40,7 @@ function genPub(
 }
 
 @Injectable()
-export class MockPublicationRepository extends PublicationRepository {
+export class ApiPublicationRepository extends PublicationRepository {
   private publications: Publication[] = [
     genPub(
       "p001",
