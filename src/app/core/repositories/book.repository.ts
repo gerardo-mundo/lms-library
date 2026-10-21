@@ -49,12 +49,8 @@ export class ApiBookRepository extends BookRepository {
   }
 
   delete(id: string): Observable<ApiResponse<void>> {
-    const idx = this.books.findIndex((b) => b.id === id);
-    if (idx === -1)
-      return of(err<void>("Book not found")).pipe(delay(MOCK_DELAY));
-    this.books.splice(idx, 1);
-    return of(
-      ok<void>(undefined as unknown as void, "Book deleted successfully"),
-    ).pipe(delay(MOCK_DELAY));
+    return this.http.delete<ApiResponse<void>>(
+      `${environment.apiUrl}/books/delete/${id}`,
+    );
   }
 }

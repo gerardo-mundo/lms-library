@@ -235,20 +235,21 @@ export class BooksListComponent implements OnInit {
       icon: "pi pi-exclamation-triangle",
       acceptButtonStyleClass: "p-button-danger",
       accept: () => {
-        this.booksService.delete(book.id).subscribe((res) => {
-          if (res.error) {
-            this.messageService.add({
-              severity: "error",
-              summary: "Error",
-              detail: res.message,
-            });
-          } else {
+        this.booksService.delete(book.id).subscribe({
+          next: (res) => {
             this.messageService.add({
               severity: "success",
               summary: "Success",
-              detail: "Book deleted successfully",
+              detail: res.message,
             });
-          }
+          },
+          error: (res: HttpErrorResponse) => {
+            this.messageService.add({
+              severity: "error",
+              summary: `Error: ${res.status}`,
+              detail: res.error.message,
+            });
+          },
         });
       },
     });
