@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { delay } from "rxjs/operators";
 import { PublicationRepository } from "./interfaces/publication.repository";
@@ -8,6 +8,8 @@ import {
   UpdatePublicationDto,
 } from "@core/models/publication.model";
 import { ApiResponse, ok, err } from "@core/models/api-response.model";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "@env";
 
 const MOCK_DELAY = 300;
 
@@ -304,9 +306,11 @@ export class ApiPublicationRepository extends PublicationRepository {
     ),
   ];
 
+  private http = inject(HttpClient);
+
   getAll(): Observable<ApiResponse<Publication[]>> {
-    return of(ok<Publication[]>([...this.publications])).pipe(
-      delay(MOCK_DELAY),
+    return this.http.get<ApiResponse<Publication[]>>(
+      `${environment.apiUrl}/publications`,
     );
   }
 
