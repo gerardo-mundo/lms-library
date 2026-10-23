@@ -33,17 +33,9 @@ export class ApiPublicationRepository extends PublicationRepository {
   }
 
   create(dto: CreatePublicationDto): Observable<ApiResponse<Publication>> {
-    const newPub: Publication = {
-      ...dto,
-      id: "p" + String(this.publications.length + 1).padStart(3, "0"),
-      authorTwo: dto.authorTwo ?? null,
-      authorThree: dto.authorThree ?? null,
-      authorFour: dto.authorFour ?? null,
-      updatedAt: new Date().toISOString(),
-    };
-    this.publications = [newPub, ...this.publications];
-    return of(ok<Publication>(newPub, "Publication created successfully")).pipe(
-      delay(MOCK_DELAY),
+    return this.http.post<ApiResponse<Publication>>(
+      `${environment.apiUrl}/publications`,
+      dto,
     );
   }
 
