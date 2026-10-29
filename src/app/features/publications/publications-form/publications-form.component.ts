@@ -22,6 +22,7 @@ import { DialogModule } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { DropdownModule } from "primeng/dropdown";
 import { ButtonModule } from "primeng/button";
+import { SelectChangeEvent } from "primeng/select";
 
 @Component({
   selector: "app-publications-form",
@@ -136,6 +137,7 @@ import { ButtonModule } from "primeng/button";
               formControlName="type"
               [options]="typeOptions"
               appendTo="body"
+              (onChange)="onChangeSelectedValue($event)"
             ></p-dropdown>
           </div>
           <div class="field col-12 md:col-6">
@@ -247,5 +249,9 @@ export class PublicationsFormComponent implements OnChanges {
     this.visible = false;
     this.visibleChange.emit(false);
     this.initForm();
+  }
+
+  onChangeSelectedValue(e: SelectChangeEvent) {
+    this.form.patchValue({ category: "", volume: "", ...this.form });
   }
 }
