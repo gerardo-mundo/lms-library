@@ -126,7 +126,7 @@ import { ButtonModule } from "primeng/button";
               placeholder="Publisher name"
             />
           </div>
-          <div class="field col-12 md:col-4">
+          <div class="field col-12 md:col-6">
             <label for="type" class="font-semibold"
               >Type <span class="text-red-500">*</span></label
             >
@@ -138,29 +138,30 @@ import { ButtonModule } from "primeng/button";
               appendTo="body"
             ></p-dropdown>
           </div>
-          <div class="field col-12 md:col-4">
-            <label for="category" class="font-semibold"
-              >Category <span class="text-red-500">*</span></label
-            >
-            <input
-              class="w-full"
-              pInputText
-              id="category"
-              formControlName="category"
-              placeholder="Category"
-            />
-          </div>
-          <div class="field col-12 md:col-4">
-            <label for="volume" class="font-semibold"
-              >Volume <span class="text-red-500">*</span></label
-            >
-            <input
-              class="w-full"
-              pInputText
-              id="volume"
-              formControlName="volume"
-              placeholder="e.g. Vol. 12"
-            />
+          <div class="field col-12 md:col-6">
+            @if (type == "PAPER") {
+              <label for="category" class="font-semibold"
+                >Category <span class="text-red-500">*</span></label
+              >
+              <input
+                class="w-full"
+                pInputText
+                id="category"
+                formControlName="category"
+                placeholder="Category"
+              />
+            } @else {
+              <label for="volume" class="font-semibold"
+                >Volume <span class="text-red-500">*</span></label
+              >
+              <input
+                class="w-full"
+                pInputText
+                id="volume"
+                formControlName="volume"
+                placeholder="e.g. Vol. 12"
+              />
+            }
           </div>
         </div>
         <div class="flex justify-content-end gap-2 mt-4">
@@ -223,6 +224,10 @@ export class PublicationsFormComponent implements OnChanges {
       category: ["", Validators.required],
       volume: ["", Validators.required],
     });
+  }
+
+  get type(): string {
+    return this.form.get("type")?.value;
   }
 
   onSubmit(): void {
