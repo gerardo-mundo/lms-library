@@ -142,9 +142,7 @@ import { SelectChangeEvent } from "primeng/select";
           </div>
           <div class="field col-12 md:col-6">
             @if (type == "PAPER") {
-              <label for="category" class="font-semibold"
-                >Category <span class="text-red-500">*</span></label
-              >
+              <label for="category" class="font-semibold">Category</label>
               <input
                 class="w-full"
                 pInputText
@@ -153,9 +151,7 @@ import { SelectChangeEvent } from "primeng/select";
                 placeholder="Category"
               />
             } @else {
-              <label for="volume" class="font-semibold"
-                >Volume <span class="text-red-500">*</span></label
-              >
+              <label for="volume" class="font-semibold">Volume</label>
               <input
                 class="w-full"
                 pInputText
@@ -223,8 +219,8 @@ export class PublicationsFormComponent implements OnChanges {
       ],
       publisher: ["", Validators.required],
       type: ["MAGAZINE" as PublicationType, Validators.required],
-      category: ["", Validators.required],
-      volume: ["", Validators.required],
+      category: [""],
+      volume: [""],
     });
   }
 
