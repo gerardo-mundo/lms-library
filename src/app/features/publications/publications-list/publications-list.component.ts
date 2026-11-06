@@ -1,22 +1,22 @@
-import { Component, OnInit, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { Component, OnInit, inject } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
-import { PublicationsService } from "../publications.service";
-import { PublicationsFormComponent } from "../publications-form/publications-form.component";
 import {
-  Publication,
   CreatePublicationDto,
+  Publication,
 } from "@core/models/publication.model";
+import { PublicationsFormComponent } from "../publications-form/publications-form.component";
+import { PublicationsService } from "../publications.service";
 
 import { ConfirmationService, MessageService } from "primeng/api";
-import { TableModule } from "primeng/table";
 import { ButtonModule } from "primeng/button";
-import { InputTextModule } from "primeng/inputtext";
-import { TagModule } from "primeng/tag";
 import { CardModule } from "primeng/card";
 import { IconFieldModule } from "primeng/iconfield";
 import { InputIconModule } from "primeng/inputicon";
+import { InputTextModule } from "primeng/inputtext";
+import { TableModule } from "primeng/table";
+import { TagModule } from "primeng/tag";
 
 @Component({
   selector: "app-publications-list",
@@ -99,7 +99,7 @@ import { InputIconModule } from "primeng/inputicon";
                 Type <p-sortIcon field="type"></p-sortIcon>
               </th>
               <th pSortableColumn="category">
-                Category <p-sortIcon field="category"></p-sortIcon>
+                Category/Volume<p-sortIcon field="category"></p-sortIcon>
               </th>
               <th pSortableColumn="issn">
                 ISSN <p-sortIcon field="issn"></p-sortIcon>
