@@ -124,7 +124,7 @@ import { TagModule } from "primeng/tag";
                   [value]="item.type ?? 'Type not defined'"
                 ></p-tag>
               </td>
-              <td>{{ item.category ?? "Category not defined" }}</td>
+              <td>{{ evaluateCategory(item) }}</td>
               <td>
                 <code class="text-sm surface-ground p-1 border-round">{{
                   item.issn
@@ -249,5 +249,15 @@ export class PublicationsListComponent implements OnInit {
         });
       },
     });
+  }
+
+  evaluateCategory(item: Publication): string {
+    if (item.type === 'MAGAZINE') {
+      return item.volume ?? 'Volume not defined';
+    } else if (item.type === 'PAPER') {
+      return item.category ?? 'Category not defined';
+    } else {
+      return 'Category not defined';
+    }
   }
 }
