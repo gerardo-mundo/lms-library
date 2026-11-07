@@ -23,7 +23,7 @@ import { LoanRepository } from "@core/repositories/interfaces/loan.repository";
 
 import { ApiBookRepository } from "@core/repositories/book.repository";
 import { MockThesisRepository } from "@core/repositories/mock/mock-thesis.repository";
-import { MockPublicationRepository } from "@core/repositories/mock/mock-publication.repository";
+import { ApiPublicationRepository } from "@core/repositories/publication.repository";
 import { MockUserRepository } from "@core/repositories/user.repository";
 import { MockLoanRepository } from "@core/repositories/mock/mock-loan.repository";
 
@@ -47,7 +47,7 @@ export const appConfig: ApplicationConfig = {
     // Repository bindings — swap these for HTTP implementations
     { provide: BookRepository, useClass: ApiBookRepository },
     { provide: ThesisRepository, useClass: MockThesisRepository },
-    { provide: PublicationRepository, useClass: MockPublicationRepository },
+    { provide: PublicationRepository, useClass: ApiPublicationRepository },
     { provide: UserRepository, useClass: MockUserRepository },
     { provide: LoanRepository, useClass: MockLoanRepository },
   ],
