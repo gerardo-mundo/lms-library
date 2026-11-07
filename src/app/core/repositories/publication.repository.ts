@@ -50,12 +50,8 @@ export class ApiPublicationRepository extends PublicationRepository {
   }
 
   delete(id: string): Observable<ApiResponse<void>> {
-    const idx = this.publications.findIndex((p) => p.id === id);
-    if (idx === -1)
-      return of(err<void>("Publication not found")).pipe(delay(MOCK_DELAY));
-    this.publications.splice(idx, 1);
-    return of(
-      ok<void>(undefined as unknown as void, "Publication deleted"),
-    ).pipe(delay(MOCK_DELAY));
+    return this.http.delete<ApiResponse<void>>(
+      `${environment.apiUrl}/publications/${id}`,
+    );
   }
 }
