@@ -136,6 +136,7 @@ import { SelectChangeEvent } from "primeng/select";
               formControlName="type"
               [options]="typeOptions"
               placeholder="Select a type"
+              [panelStyle]="{ 'minWidth': '100%' }"
               appendTo="body"
               (onChange)="onChangeSelectedValue($event)"
             ></p-dropdown>
