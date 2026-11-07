@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common";
 import {
   Component,
   EventEmitter,
@@ -6,22 +7,20 @@ import {
   Output,
   SimpleChanges,
 } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import {
-  ReactiveFormsModule,
   FormBuilder,
   FormGroup,
+  ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
 import {
-  Publication,
   CreatePublicationDto,
-  PublicationType,
+  Publication
 } from "@core/models/publication.model";
-import { DialogModule } from "primeng/dialog";
-import { InputTextModule } from "primeng/inputtext";
-import { DropdownModule } from "primeng/dropdown";
 import { ButtonModule } from "primeng/button";
+import { DialogModule } from "primeng/dialog";
+import { DropdownModule } from "primeng/dropdown";
+import { InputTextModule } from "primeng/inputtext";
 import { SelectChangeEvent } from "primeng/select";
 
 @Component({
@@ -136,6 +135,7 @@ import { SelectChangeEvent } from "primeng/select";
               id="type"
               formControlName="type"
               [options]="typeOptions"
+              placeholder="Select a type"
               appendTo="body"
               (onChange)="onChangeSelectedValue($event)"
             ></p-dropdown>
@@ -218,7 +218,7 @@ export class PublicationsFormComponent implements OnChanges {
         [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
       ],
       publisher: ["", Validators.required],
-      type: ["MAGAZINE" as PublicationType, Validators.required],
+      type: ["", Validators.required],
       category: [""],
       volume: [""],
     });
